@@ -1,0 +1,23 @@
+[project]
+name = "fastapi-tracing"
+version = "0.1.0"
+description = "A FastAPI application demonstrating OpenTelemetry integration with Google Cloud Monitoring."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "Apache-2.0" }
+authors = [
+    { name = "Paul Durivage", email = "durivage+github@google.com" }
+]
+dependencies = [
+    "fastapi>=0.115.12",
+    "opentelemetry-exporter-gcp-logging>=1.9.0a0",
+    "opentelemetry-exporter-gcp-trace>=1.9.0",
+    "opentelemetry-exporter-otlp-proto-http>=1.33.1",
+    "opentelemetry-instrumentation-fastapi>=0.54b1",
+    "opentelemetry-instrumentation-logging>=0.54b1",
+    "python-json-logger>=3.3.0",
+    "uvicorn[standard]>=0.34.2",
+]
+
+[project.scripts]
+fastapi-tracing-serve = "src.fastapi_tracing.app:get_or_create_app"
